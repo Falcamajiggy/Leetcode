@@ -4,7 +4,7 @@
 int removeElement(int * nums, int numsSize, int val);
 
 int main(){
-    int nums[] = {2, 2, 3, 1, 4, 3, 5, 3, 3, 4};
+    int nums[] = {2, 2, 3, 1, 4, 3, 5, 3,3, 4};
     int numSize = 10;
     int val = 3;
     removeElement(nums, numSize, val);
@@ -25,10 +25,22 @@ int removeElement(int * nums, int numsSize, int val){
     //         numsSize--;
     //     }
     // }
-
-    // for(int i = 0; i < numsSize; i++){
-    //     printf("%d ", nums[i]);
-    // }
-
     // return numsSize;
+
+    //Newer, More elegant version:
+    int k = 0;
+    for(int i=0; i < numsSize; i++){
+        if(nums[i] != val){
+            nums[k] = nums[i];
+            k++;
+        }
+    }
+    // int temp = numsSize - k;
+    // numsSize -= temp;
+
+    for(int i = 0; i < numsSize; i++){
+        printf("%d ", nums[i]);
+    }
+
+    return k;
 }
